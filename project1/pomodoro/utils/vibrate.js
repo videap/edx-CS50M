@@ -1,3 +1,6 @@
 import {Vibration} from 'react-native'
 
-export default () => Vibration.vibrate([500, 500, 500])
+export default () => {
+    console.log("Ooooooouuughhhuoh")
+    Vibration.vibrate([0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500])
+}

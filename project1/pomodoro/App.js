@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-
-
+import { StyleSheet, Text, View, Button } from 'react-native';
+import vibrate from './utils/vibrate';
 
 export default function App() {
+
   return (
     <View style={styles.container}>
-      <Text>Hello from Android</Text>
+      <Text>Hello from Web
+      </Text>
+      <View style={styles.button}>
+        <Button title="Vibrate" onPress={vibrate}></Button>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,24 +19,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    fontSize: 120,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  button: {
+    padding: 10,
+  }
 });
-
-
-
-
-// import React from 'react';
-
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>Open up App.js to start working on your app!</Text>
-//       </View>
-//     );
-//   }
-// }
-
