@@ -1,33 +1,61 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import React, {Component} from 'react';
 import settings from './settings';
+import pomodoroAlert from './utils/alert'
+import playSound from './utils/play_sound';
 
-export class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
+    this.stop = false
+
     this.state = {
-      periodSecs: 0,
-      countdownSecs: 0,
-      countPomodoros: 0
+      periodSecs: 10,
+      countdownSecs: 10,
+      countPomodoros: 0,
     };
   }
 
-  startPomodoro() {
-    console.log("Your pomodoro has started!")
+  start() {
+    this.stop = false
+    this.countDown()
+  }
+
+  reset() {
+    this.stop = true
+    this.setState({countdownSecs: this.state.periodSecs})
+  }
+
+  countDown() {
+    if (this.state.countdownSecs > 0 && this.stop === false){
+      setTimeout( () => {
+          console.log("Minus 1 sec")
+          this.setState({countdownSecs: this.state.countdownSecs-1});
+          this.countDown()
+        }, 1000);
+    } else {
+      this.reset();
+      console.log("The pomodoro has finished.");
+      pomodoroAlert();
+      playSound();
+    };
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is the pomodoro app for {Platform.OS}!!</Text>
+        <View style={styles.formbox}>
+          <Text>Pomodoro Secs:</Text>
+          <TextInput style={styles.text_input} focusable onChangeText={(secs) => this.setState({periodSecs: secs, countdownSecs: secs})}>10</TextInput>
+        </View>
         <View style={styles.button}>
-          <Button title={`START POMODORO`} onPress={startPomodoro()}></Button>
+          <Button title={`START TIMER`} onPress={() => this.start()}></Button>
+          <Button title={`RESET`} onPress={() => this.reset() }></Button>
         </View>
         <View>
-          <Text on>
+          <Text>
             Countdown: {this.state.countdownSecs}
           </Text>
         </View>
@@ -36,6 +64,8 @@ export class App extends Component {
     );
   };
 };
+
+//#region Styling
 
 const styles = StyleSheet.create({
   container: {
@@ -48,5 +78,25 @@ const styles = StyleSheet.create({
 
   button: {
     padding: 10,
+  },
+
+  formbox: {
+    marginVertical: 10,
+    borderColor: "#000000",
+    borderWidth: 3,
+  },
+
+  text_input: {
+    alignSelf: "center",
+    marginVertical: 5,
+    borderColor: "#000000",
+    borderWidth: 1,
+    height: 30,
+    width: 50,
+    textAlign: "center",
   }
 });
+
+export default App;
+
+//#endregion
