@@ -11,6 +11,17 @@ import com.facebook.react.defaults.DefaultReactActivityDelegate;
 import expo.modules.ReactActivityDelegateWrapper;
 
 public class MainActivity extends ReactActivity {
+
+
+  /**
+   *  Add new statement to allow react navigation
+   *  Reference: https://reactnavigation.org/docs/getting-started#installing-dependencies-into-a-bare-react-native-project
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // Set the theme to AppTheme BEFORE onCreate to support 
