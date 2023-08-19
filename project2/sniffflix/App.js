@@ -15,12 +15,11 @@ class App extends React.Component {
     this.state = {};
   }
 
-
   render() {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+          <Stack.Screen name="SniffFlix" component={HomeScreen}/>
           <Stack.Screen name="TitlesScreen" component={TitlesScreen}/>
           <Stack.Screen name="TitleScreen" component={TitleScreen}/>
           <Stack.Screen name="CategoryScreen" component={CategoryScreen}/>
@@ -33,3 +32,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+
