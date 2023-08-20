@@ -7,6 +7,8 @@ import { TitleScreen } from './screens/TitleScreen'
 import { CategoryScreen } from './screens/CategoryScreen'
 import { ActorScreen } from './screens/ActorScreen'
 import { RatingsScreen } from './screens/RatingsScreen'
+import styles, { colors, fonts } from './screens/styles/styles.js'
+
 
 const Stack = createNativeStackNavigator()
 class App extends React.Component {
@@ -18,9 +20,18 @@ class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="SniffFlix" component={HomeScreen}/>
-          <Stack.Screen name="TitlesScreen" component={TitlesScreen}/>
+        <Stack.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.azure,
+        },
+        headerTintColor: colors.charcoal,
+        headerTitleStyle: {
+          color: colors.charcoal,
+          fontFamily: fonts.ultrabold,
+        },
+      }}>
+          <Stack.Screen name="🐽 SniffFlix" component={HomeScreen}/>
+          <Stack.Screen name="TitlesScreen" component={TitlesScreen} options={({ route }) => ({ title: route.params.title })}/>
           <Stack.Screen name="TitleScreen" component={TitleScreen}/>
           <Stack.Screen name="CategoryScreen" component={CategoryScreen}/>
           <Stack.Screen name="ActorScreen" component={ActorScreen}/>
@@ -32,6 +43,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-

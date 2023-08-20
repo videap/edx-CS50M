@@ -59,8 +59,34 @@ const styles = StyleSheet.create({
           fontFamily: fonts.ultrabold,
           color: colors.tiffanny_blue
         }
+      },
+      movie: {
+        flex: 1,
+        card: {
+          flex: 1,
+          backgroundColor: colors.charcoal,
+          borderColor: colors.azure,
+          borderWidth: 2,
+          width: "90%",
+          margin:5,
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        alignItems: "center",
+        justifyContent: "center",
+        text: {
+          fontSize: 24,
+          fontFamily: fonts.bold,
+          color: colors.tiffanny_blue
+        }
       }
-    }
+    },
+    movie_carousel: {
+      width: "100%",
+      backgroundColor: colors.oxford_blue,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   });
 
 export default styles;

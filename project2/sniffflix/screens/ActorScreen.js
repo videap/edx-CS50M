@@ -5,7 +5,7 @@ import styles from './styles/styles.js'
 
 export const ActorScreen = () => {
     return (
-      <View style={styles.container}>
+      <View style={styles.home_container}>
         <Text style={styles.title}>Actor</Text>
         <StatusBar style="auto" />
       </View>

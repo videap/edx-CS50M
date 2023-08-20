@@ -2,13 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, Text, View } from 'react-native';
 import styles from './styles/styles.js'
+import MovieCarousel from './components/MovieCarousel.js';
 
-export const TitlesScreen = ({navigation}) => {
+export class TitlesScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
+  render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Movies</Text>
-        <Button title='Go to Title screen' onPress={() => navigation.push("TitleScreen")}/>
-        <StatusBar style="auto" />
-      </View>
+      <MovieCarousel style={styles.movie_carousel}/>
     );
+  }
 }
+
