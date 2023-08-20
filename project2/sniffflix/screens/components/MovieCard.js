@@ -12,8 +12,7 @@ export default class MovieCard extends React.Component {
         <TouchableHighlight
             activeOpacity={0.6}
             underlayColor={colors.azure}
-            // onPress={() => this.props.navigation.navigate(this.props.navigate_to, {title: this.props.category})}
-            onPress={() => alert(this.props.movie_title)}
+            onPress={() => this.props.navigation.navigate("TitleScreen", {title: this.props.movie_title})}
             style={styles.cards_container.movie.card}
         >
             <Text style={styles.cards_container.movie.text}>{this.props.movie_title}</Text>

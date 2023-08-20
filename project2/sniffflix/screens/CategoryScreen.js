@@ -5,9 +5,9 @@ import styles from './styles/styles.js'
 
 export const CategoryScreen = ({navigation}) => {
     return (
-      <View style={styles.container}>
+      <View style={styles.home_container}>
         <Text style={styles.title}>Categories</Text>
-        <Button title='Go to Titles screen' onPress={() => navigation.push("TitlesScreen")}/>
+        <Button title='Go to Titles screen' onPress={() => navigation.navigate("TitlesScreen")}/>
         <StatusBar style="auto" />
       </View>
     );

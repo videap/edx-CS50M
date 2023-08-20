@@ -12,7 +12,7 @@ export const HomeScreen = ({navigation}) => {
         <Text style={styles.title_container.text}>SniffFlix</Text>
       </View>
       <View style={styles.cards_container.category}>
-        { ["Top 250", "By Genre", "By Year"].map((category) => <CategoryCard category={category} navigation={navigation} navigate_to="TitlesScreen" key={category}/>)}
+        { ["Top 250", "By Genre", "By Year"].map((category) => <CategoryCard category={category} navigation={navigation} key={category}/>)}
       </View>
       <StatusBar style="auto"/>
     </View>

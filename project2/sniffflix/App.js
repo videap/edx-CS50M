@@ -32,10 +32,10 @@ class App extends React.Component {
       }}>
           <Stack.Screen name="🐽 SniffFlix" component={HomeScreen}/>
           <Stack.Screen name="TitlesScreen" component={TitlesScreen} options={({ route }) => ({ title: route.params.title })}/>
-          <Stack.Screen name="TitleScreen" component={TitleScreen}/>
+          <Stack.Screen name="TitleScreen" component={TitleScreen} options={({ route }) => ({ title: route.params.title })}/>
           <Stack.Screen name="CategoryScreen" component={CategoryScreen}/>
-          <Stack.Screen name="ActorScreen" component={ActorScreen}/>
-          <Stack.Screen name="RatingsScreen" component={RatingsScreen}/>
+          <Stack.Screen name="ActorScreen" component={ActorScreen} options={({ route }) => ({ title: route.params.actor_name })}/>
+          <Stack.Screen name="RatingsScreen" component={RatingsScreen} options={({ route }) => ({ title: route.params.title })}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

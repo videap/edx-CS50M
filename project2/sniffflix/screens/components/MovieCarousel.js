@@ -14,7 +14,7 @@ export default class MovieCarousel extends React.Component {
     render() {
       return (
         <ScrollView contentContainerStyle={styles.movie_carousel}>
-            {array.map( (i) => <MovieCard key={i} movie_title={i}/> )}
+            {array.map( (i) => <MovieCard key={i} movie_title={i} navigation={this.props.navigation}/> )}
         </ScrollView>
       );
     }

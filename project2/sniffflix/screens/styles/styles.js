@@ -87,6 +87,24 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    movie_info: {
+      text: {
+        fontSize: 72,
+        color: colors.azure
+      }
+    },
+    actor_info: {
+      text: {
+        fontSize: 72,
+        color: colors.azure
+      }
+    },
+    ratings: {
+      text: {
+        fontSize: 72,
+        color: colors.azure
+      }
+    },
   });
 
 export default styles;
