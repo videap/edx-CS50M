@@ -100,9 +100,11 @@ const styles = StyleSheet.create({
       }
     },
     ratings: {
-      text: {
-        fontSize: 72,
-        color: colors.azure
+      card: {
+        text: {
+          fontSize: 36,
+          color: colors.light_pink
+        }
       }
     },
   });

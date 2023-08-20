@@ -4,7 +4,7 @@ import { AppRegistry, ScrollView, Text } from "react-native";
 import MovieCard from "./MovieCard.js";
 
 
-var array = [ ...Array(100).keys() ].map( i => `Movie ${i+1}`);
+const array = [ ...Array(100).keys() ].map( i => `Movie ${i+1}`);
 
 
 export default class MovieCarousel extends React.Component {

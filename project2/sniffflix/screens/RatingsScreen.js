@@ -1,13 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
-import styles from './styles/styles.js'
+import Ratings from './components/Ratings.js';
+import styles from './styles/styles.js';
+import { View } from 'react-native';
 
-export const RatingsScreen = () => {
+export const RatingsScreen = ({route}) => {
     return (
       <View style={styles.home_container}>
-        <Text style={styles.title}>Ratings</Text>
-        <StatusBar style="auto" />
+        <Ratings title={route.params.title}/>
       </View>
     );
 }
