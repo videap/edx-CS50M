@@ -1,10 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './styles/styles.js'
 import CategoryCard from './components/CategoryCard.js'
 
 export const HomeScreen = ({navigation}) => {
+
+  const categories_next_screen = {
+    "Top 250": "TitlesScreen",
+    "By Genre": "CategoryScreen",
+    "By Year": "CategoryScreen"
+  }
+
 
   return (
     <View style={styles.home_container}>
@@ -12,7 +19,7 @@ export const HomeScreen = ({navigation}) => {
         <Text style={styles.title_container.text}>SniffFlix</Text>
       </View>
       <View style={styles.cards_container.category}>
-        { ["Top 250", "By Genre", "By Year"].map((category) => <CategoryCard category={category} navigation={navigation} key={category}/>)}
+        {Object.keys(categories_next_screen).map( category  => <CategoryCard category={category} navigation={navigation} key={category} next_screen={categories_next_screen[category]}/>)}
       </View>
       <StatusBar style="auto"/>
     </View>
