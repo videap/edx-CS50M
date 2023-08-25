@@ -87,6 +87,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    section_carousel: {
+      width: "100%",
+      backgroundColor: colors.oxford_blue,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     movie_info: {
       text: {
         fontSize: 72,

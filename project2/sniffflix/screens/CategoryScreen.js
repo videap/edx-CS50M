@@ -1,10 +1,10 @@
 import React from 'react';
-import MovieCarousel from './components/MovieCarousel.js';
+import SectionCarousel from './components/SectionCarousel.js';
 
 export const CategoryScreen = ({navigation, route}) => {
     const { category } = route.params
 
     return (
-      <MovieCarousel navigation={navigation} category={category} />
+      <SectionCarousel navigation={navigation} category={category} />
     );
 }
