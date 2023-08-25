@@ -12,7 +12,7 @@ export default class Card extends React.Component {
         <TouchableHighlight
             activeOpacity={0.6}
             underlayColor={colors.azure}
-            onPress={() => this.props.navigation.navigate(this.props.next_screen, {title: this.props.category})}
+            onPress={() => this.props.navigation.navigate(this.props.next_screen, {title: this.props.category, category: this.props.category})}
             style={styles.cards_container.category.card}
         >
             <Text style={styles.cards_container.category.text}>🐽 {this.props.category}</Text>
