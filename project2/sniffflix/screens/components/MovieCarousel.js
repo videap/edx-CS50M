@@ -14,23 +14,25 @@ export default class MovieCarousel extends React.Component {
 
       this.state = {
         loading: true,
-        error: false,
         titles: [],
       }
+
+      this.error = false
     }
 
     async section_function(category, section, page=1) {
 
       const functions_by_category = {
-        "Top 250": this.get_top(page),
-        "By Genre": this.get_by_genre(section, page),
-        "By Year": this.get_by_year(section, page),
+        "Top 250": (page) => this.get_top(page),
+        "By Genre": (section, page) => this.get_by_genre(section, page),
+        "By Year": (section, page) => this.get_by_year(section, page),
       }
 
-      return await functions_by_category[category];
+      return await functions_by_category[category]();
     }
 
     async get_top(page) {
+      console.log("Running get_top")
 
       const headers = {
         'X-RapidAPI-Key': config.movies_db_api_key
@@ -42,10 +44,11 @@ export default class MovieCarousel extends React.Component {
         page: page,
       }
 
-      return await get_request("https://moviesdatabase.p.rapidapi.com/titles", headers, params, () => this.setState({loading:false, error: true}))
+      return await get_request("https://moviesdatabase.p.rapidapi.com/titles", headers, params, () => this.error=true)
     }
 
     async get_by_genre(genre, page) {
+      console.log("Running get_by_genre")
       const headers = {
         'X-RapidAPI-Key': config.movies_db_api_key
       };
@@ -56,11 +59,12 @@ export default class MovieCarousel extends React.Component {
         genre: genre
       }
 
-      return await get_request("https://moviesdatabase.p.rapidapi.com/titles", headers, params, () => this.setState({loading:false, error: true}))
+      return await get_request("https://moviesdatabase.p.rapidapi.com/titles", headers, params, () => this.error=true)
 
     }
 
     async get_by_year(year, page) {
+      console.log("Running get_by_year")
       const headers = {
         'X-RapidAPI-Key': config.movies_db_api_key
       };
@@ -71,7 +75,7 @@ export default class MovieCarousel extends React.Component {
         year: year
       }
 
-      return await get_request("https://moviesdatabase.p.rapidapi.com/titles", headers, params, () => this.setState({loading:false, error: true}))
+      return await get_request("https://moviesdatabase.p.rapidapi.com/titles", headers, params, () => this.error=true)
     }
 
     componentDidMount() {
@@ -82,15 +86,16 @@ export default class MovieCarousel extends React.Component {
 
 
     render() {
-      if (this.state.loading) {
+
+      if (this.error) {
+        return (
+          <Text>Ops! Sorry, an error has occurred.</Text>
+        );
+      } else if (this.state.loading) {
         return (
           <View style={styles.loading_container}>
             <Text style={styles.loading_container.text}>Loading...</Text>
           </View>
-        );
-      } else if (this.state.error) {
-        return (
-          <Text>Ops! Sorry, an error has occurred.</Text>
         );
       } else {
         return (<ScrollView contentContainerStyle={styles.movie_carousel}>
