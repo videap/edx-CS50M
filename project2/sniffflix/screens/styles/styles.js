@@ -28,6 +28,17 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    loading_container: {
+      flex: 1,
+      backgroundColor: colors.oxford_blue,
+      alignItems: 'center',
+      justifyContent: 'center',
+      text: {
+        color: colors.tiffanny_blue,
+        fontSize: 48,
+        fontFamily: fonts.ultrabold
+      }
+    },
     title_container: {
       flex: 1,
       alignItems: 'center',

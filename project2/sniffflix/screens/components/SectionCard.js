@@ -12,7 +12,7 @@ export default class SectionCard extends React.Component {
         <TouchableHighlight
             activeOpacity={0.6}
             underlayColor={colors.azure}
-            onPress={() => this.props.navigation.navigate("TitlesScreen", {category: this.props.category})}
+            onPress={() => this.props.navigation.navigate("TitlesScreen", {category: this.props.category, title: this.props.section, section: this.props.section})}
             style={styles.ratings.card}
         >
             <Text style={styles.ratings.card.text}>{this.props.section}</Text>
