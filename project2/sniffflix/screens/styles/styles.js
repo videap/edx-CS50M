@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 export const fonts = {
   normal: 'Gill Sans',
@@ -68,27 +68,39 @@ const styles = StyleSheet.create({
         text: {
           fontSize: 32,
           fontFamily: fonts.ultrabold,
-          color: colors.tiffanny_blue
+          color: colors.tiffanny_blue,
+          textAlign: "center",
+
         }
       },
       movie: {
         flex: 1,
         card: {
           flex: 1,
+          flexDirection: 'column',
           backgroundColor: colors.charcoal,
           borderColor: colors.azure,
           borderWidth: 2,
           width: "90%",
           margin:5,
-          alignItems: 'center',
+          alignItems: 'left',
           justifyContent: 'center',
+          image: {
+            width: 50,
+            height: 50,
+          },
+        },
+        detail: {
+          fontSize: 18,
+          // fontFamily: fonts.bold,
+          color: colors.oxford_blue
         },
         alignItems: "center",
         justifyContent: "center",
         text: {
           fontSize: 24,
           fontFamily: fonts.bold,
-          color: colors.tiffanny_blue
+          color: colors.tiffanny_blue,
         }
       }
     },
@@ -105,9 +117,16 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     movie_info: {
+      image: {
+        resizeMode: 'cover',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height*0.5,
+
+      },
       text: {
-        fontSize: 72,
-        color: colors.azure
+        fontSize: 48,
+        color: colors.azure,
+        textAlign: "center"
       }
     },
     actor_info: {

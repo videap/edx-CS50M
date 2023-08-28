@@ -5,11 +5,11 @@ import styles from './styles/styles';
 
 export const TitleScreen = ({navigation, route}) => {
 
-  const {id, title} = route.params
+  const {id, title, data} = route.params
 
   return (
     <View style={styles.home_container}>
-      <MovieInfo navigation={navigation} id={id} title={title}/>
+      <MovieInfo navigation={navigation} id={id} title={title} data={data}/>
     </View>
   );
 }
